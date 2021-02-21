@@ -1,0 +1,83 @@
+{
+  "type": "APL",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [],
+  "resources": [
+    {
+      "description": "Images for my skill",
+      "strings": {
+        "backgroundImg": ""
+      }
+    }
+  ],
+  "styles": {},
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {
+    "BackgroundImage": {
+      "parameters": ["imgSrc"],
+      "items": [
+        {
+          "type": "Image",
+          "source": "${imgSrc}",
+          "width": "100vw",
+          "height": "100vh",
+          "scale": "best-fill",
+          "position": "absolute"
+        }
+      ]
+    }
+  },
+  "mainTemplate": {
+    "parameters": ["payload"],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100vw",
+        "height": "100vh",
+        "paddingTop": "5vh",
+        "direction": "row",
+        "items": [
+          {
+            "type": "BackgroundImage",
+            "imgSrc": "@backgroundImg"
+          },
+          {
+            "type": "Container",
+            "width": "100vw",
+            "height": "100vh",
+            "paddingTop": "20vh",
+            "direction": "column",
+            "items": [
+              {
+                "type": "Text",
+                "fontSize": "7vh",
+                "fontStyle": "italic",
+                "textAlign": "center",
+                "text": "${payload.roundData.properties.level}"
+              },
+
+              {
+                "when": "${payload.roundData.properties.level == 'Practice'}",
+                "type": "Text",
+                "fontSize": "6vh",
+                "textAlign": "center",
+                "text": "<br><br>In one or two sentences, tell me something ${payload.roundData.properties.practiceSentiment}."
+              },
+              {
+                "when": "${payload.roundData.properties.level != 'Practice'}",
+                "type": "Text",
+                "fontSize": "6vh",
+                "textAlign": "center",
+                "text": "<br><br>In one or two sentences, tell me something POSITIVE."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

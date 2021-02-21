@@ -1,0 +1,19 @@
+{
+  "name": "FreeMoodlyGraph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ask-sdk": "^2.7.0",
+    "ask-sdk-s3-persistence-adapter": "^2.8.0",
+    "aws-sdk": "^2.645.0",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

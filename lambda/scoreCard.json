@@ -1,0 +1,309 @@
+{
+  "type": "APL",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.0.0"
+    }
+  ],
+  "resources": [
+    {
+      "description": "Images for my skill",
+      "strings": {
+        "backgroundImg": ""
+      }
+    }
+  ],
+  "styles": {},
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {
+    "BackgroundImage": {
+      "parameters": ["imgSrc"],
+      "items": [
+        {
+          "type": "Image",
+          "source": "${imgSrc}",
+          "width": "100vw",
+          "height": "100vh",
+          "scale": "best-fill",
+          "position": "absolute"
+        }
+      ]
+    }
+  },
+  "mainTemplate": {
+    "parameters": ["payload"],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100vw",
+        "height": "100vh",
+        "paddingTop": "2vh",
+        "direction": "column",
+        "items": [
+          {
+            "type": "BackgroundImage",
+            "imgSrc": "@backgroundImg"
+          },
+          {
+            "type": "Container",
+            "when": "${@viewportShape != @viewportShapeRound}",
+            "width": "100vw",
+            "height": "10vh",
+            "direction": "row",
+            "items": [
+              {
+                "type": "Text",
+                "width": "50vw",
+                "text": "${payload.sentimentData.properties.level}",
+                "paddingLeft": "2vw",
+                "textAlign": "left"
+              },
+              {
+                "type": "Text",
+                "width": "50vw",
+                "text": "${payload.sentimentData.properties.gameScore}",
+                "paddingRight": "2vw",
+                "textAlign": "right"
+              }
+            ]
+          },
+          {
+            "type": "Text",
+            "when": "${@viewportShape != @viewportShapeRound}",
+            "width": "100vw",
+            "height": "10vh",
+            "fontStyle": "italic",
+            "text": "\"${payload.sentimentData.properties.query}\"",
+            "textAlign": "left",
+            "fontSize": "5vh",
+            "paddingLeft": "2vw"
+          },
+          {
+            "type": "Container",
+            "when": "${@viewportShape != @viewportShapeRound}",
+            "width": "100vw",
+            "paddingRight": "0vw",
+            "paddingLeft": "2vw",
+            "justifyContent": "center",
+            "height": "50vh",
+            "items": [
+              {
+                "type": "Container",
+                "width": "80vw",
+                "paddingRight": "0vw",
+                "justifyContent": "end",
+                "direction": "column",
+                "items": [
+                  {
+                    "type": "Container",
+                    "direction": "row",
+                    "items": [
+                      {
+                        "type": "Text",
+                        "width": "10vw",
+                        "color": "${payload.sentimentData.properties.scoreColors[0]}",
+                        "text": "${payload.sentimentData.properties.scores[0]} • ",
+                        "textAlign": "right"
+                      },
+                      {
+                        "type": "Text",
+                        "width": "20vw",
+                        "text": "POSITIVE ",
+                        "textAlign": "center"
+                      },
+                      {
+                        "type": "Container",
+                        "paddingLeft": "2vw",
+                        "width": "60vw",
+                        "items": [
+                          {
+                            "type": "Frame",
+                            "width": "${payload.sentimentData.properties.scores[0]}%",
+                            "height": "50",
+                            "backgroundColor": "#63ACBE"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "direction": "row",
+                    "items": [
+                      {
+                        "type": "Text",
+                        "width": "10vw",
+                        "color": "${payload.sentimentData.properties.scoreColors[1]}",
+                        "text": "${payload.sentimentData.properties.scores[1]} • ",
+                        "textAlign": "right"
+                      },
+                      {
+                        "type": "Text",
+                        "width": "20vw",
+                        "text": "NEGATIVE ",
+                        "textAlign": "center"
+                      },
+                      {
+                        "type": "Container",
+                        "width": "60vw",
+                        "paddingLeft": "2vw",
+                        "items": [
+                          {
+                            "type": "Frame",
+                            "width": "${payload.sentimentData.properties.scores[1]}%",
+                            "height": "50",
+                            "backgroundColor": "#EE442F"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Container",
+            "when": "${@viewportShape != @viewportShapeRound}",
+            "width": "100vw",
+            "items": [
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${payload.sentimentData.properties.level == 'Practice'}",
+                "fontStyle": "italic",
+                "fontSize": "5vh",
+                "text": "<br>Now say something ${payload.sentimentData.properties.next}<br>or<br>${payload.sentimentData.properties.hintString}"
+              },
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${payload.sentimentData.properties.level == 'Level 1' && (payload.sentimentData.properties.value == 0)}",
+                "fontStyle": "italic",
+                "text": "<br>Now say something ${payload.sentimentData.properties.next}"
+              },
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${(payload.sentimentData.properties.level == 'Level 1') && (payload.sentimentData.properties.value > 0)}",
+                "fontStyle": "italic",
+                "text": "<br>Now say something ${payload.sentimentData.properties.next} @ ${payload.sentimentData.properties.value}%"
+              },
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${(payload.sentimentData.properties.level == 'Level 2') && (payload.sentimentData.properties.scoreType != 'FINAL')}",
+                "fontStyle": "italic",
+                "text": "<br>Now say something ${payload.sentimentData.properties.next} @ ${payload.sentimentData.properties.nextTarget}%"
+              },
+
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${(payload.sentimentData.properties.level == 'Level 2') && (payload.sentimentData.properties.scoreType == 'FINAL') && (payload.sentimentData.properties.newHi == true) }",
+                "fontStyle": "italic",
+                "color": "yellow",
+                "text": "NEW HIGH SCORE!!!"
+              }
+            ]
+          },
+          {
+            "type": "Container",
+            "when": "${@viewportShape == @viewportShapeRound}",
+            "width": "100vw",
+            "height": "100vh",
+            "paddingTop": "2vh",
+            "direction": "column",
+            "items": [
+              {
+                "type": "Text",
+                "fontSize": "4vh",
+                "fontStyle": "bold",
+                "textAlign": "center",
+                "text": "${payload.sentimentData.properties.level}"
+              },
+
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "fontSize": "4vh",
+                "fontStyle": "italic",
+                "paddingLeft": "20vw",
+                "paddingRight": "20vw",
+                "text": "<br>${payload.sentimentData.properties.query}"
+              },
+
+              {
+                "type": "Text",
+                "fontSize": "5vh",
+                "textAlign": "center",
+                "color": "${payload.sentimentData.properties.scoreColors[0]}",
+                "text": "<br><br>POSITIVE: ${payload.sentimentData.properties.scores[0]}"
+              },
+              {
+                "type": "Text",
+                "fontSize": "5vh",
+                "textAlign": "center",
+                "color": "${payload.sentimentData.properties.scoreColors[1]}",
+                "text": "NEGATIVE: ${payload.sentimentData.properties.scores[1]}"
+              },
+              {
+                "type": "Text",
+                "fontSize": "4vh",
+                "textAlign": "center",
+                "text": "<br>${payload.sentimentData.properties.gameScore}"
+              },
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${payload.sentimentData.properties.level == 'Practice'}",
+                "fontStyle": "italic",
+                "fontSize": "4vh",
+                "text": "<br>Now say something ${payload.sentimentData.properties.next}<br>or<br>${payload.sentimentData.properties.hintString}"
+              },
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${payload.sentimentData.properties.level == 'Level 1' && (payload.sentimentData.properties.value == 0)}",
+                "fontStyle": "italic",
+                "fontSize": "4vh",
+                "text": "<br>Now say something ${payload.sentimentData.properties.next}"
+              },
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${(payload.sentimentData.properties.level == 'Level 1') && (payload.sentimentData.properties.value > 0)}",
+                "fontStyle": "italic",
+                "fontSize": "4vh",
+                "text": "<br>Now say something<br>${payload.sentimentData.properties.next} @ ${payload.sentimentData.properties.value}%"
+              },
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${(payload.sentimentData.properties.level == 'Level 2') && (payload.sentimentData.properties.scoreType != 'FINAL')}",
+                "fontStyle": "italic",
+                "fontSize": "4vh",
+                "text": "<br>Now say something<br>${payload.sentimentData.properties.next} @ ${payload.sentimentData.properties.nextTarget}%"
+              },
+
+              {
+                "type": "Text",
+                "textAlign": "center",
+                "when": "${(payload.sentimentData.properties.level == 'Level 2') && (payload.sentimentData.properties.scoreType == 'FINAL') && (payload.sentimentData.properties.newHi == true) }",
+                "fontStyle": "italic",
+                "color": "yellow",
+                "text": "NEW HIGH SCORE!!!"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

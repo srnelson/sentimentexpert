@@ -1,0 +1,94 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Try to match Expert.ai's sentiment measurements to specific goals by making positive or negative statements. Match closer, score more points.",
+          "examplePhrases": [
+            "Alexa, play Sentiment Expert",
+            "Alexa, ask Sentiment Expert to start game",
+            "Alexa, ask Sentiment Expert for practice"
+          ],
+          "keywords": [
+            "sentiments",
+            "emotion",
+            "mood",
+            "linguistics",
+            "game",
+            "understanding",
+            "sentiment"
+          ],
+          "name": "Sentiment Expert",
+          "description": "In Sentiment Expert you will try to match Expert.ai's sentiment measurements to specific goals, by making positive, negative, neutral or mixed statements. The closer you match the goals, the higher your score. You may not always agree with Expet.ai's measurements. That's OK! And if you want to consider it a toy instead of a game, just ignore the score. That's OK, too!\n\nIn a practice round, you can get an idea of how Expert.ai rates your statements as Positive or Negative, assigning a score for those factors.\n\nIn the first round of game play, you will be asked to make a statement to match each of those sentiments.\nIn round one, points are awarded based on how many attempts it takes to match the sentiment.\n\nIn the second round, you will be asked to match both the predominant sentiment (e.g. POSITIVE) as well as the degree of that sentiment that Expert.ai measures (e.g. POSITIVE @ 83%).\nIn round two, points are awarded based on how close you get to the percentage, as well as a degree of difficulty (lower percentages are harder).\n\nYour high score is saved, so in subsequent visits, you can try to top your previous high score.\n\n(Icon courtesy of Vecteezy.com)",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "category": "EDUCATIONAL_GAMES",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": ""
+        },
+        "interfaces": [
+          {
+            "supportedViewports": [
+              {
+                "minHeight": 480,
+                "mode": "HUB",
+                "shape": "ROUND",
+                "maxHeight": 480,
+                "minWidth": 480,
+                "maxWidth": 480
+              },
+              {
+                "minHeight": 600,
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "maxHeight": 600,
+                "minWidth": 1024,
+                "maxWidth": 1024
+              },
+              {
+                "minHeight": 800,
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "maxHeight": 800,
+                "minWidth": 1280,
+                "maxWidth": 1280
+              },
+              {
+                "minHeight": 540,
+                "mode": "TV",
+                "shape": "RECTANGLE",
+                "maxHeight": 540,
+                "minWidth": 960,
+                "maxWidth": 960
+              },
+              {
+                "minHeight": 480,
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "maxHeight": 480,
+                "minWidth": 960,
+                "maxWidth": 960
+              }
+            ],
+            "type": "ALEXA_PRESENTATION_APL"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

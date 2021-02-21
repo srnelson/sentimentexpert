@@ -1,0 +1,254 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "sentiment expert",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "UtteranceIntent",
+          "slots": [
+            {
+              "name": "text",
+              "type": "catchAll"
+            }
+          ],
+          "samples": ["{text}"]
+        },
+        {
+          "name": "PracticeIntent",
+          "slots": [
+            {
+              "name": "sentiment",
+              "type": "Sentiment"
+            }
+          ],
+          "samples": [
+            "practice {sentiment}",
+            "begin practice game",
+            "begin practice",
+            "start practice game",
+            "start practice",
+            "practice game",
+            "practice"
+          ]
+        },
+        {
+          "name": "StartGameIntent",
+          "slots": [],
+          "samples": [
+            "begin the game",
+            "start the game",
+            "start game to begin",
+            "begin new game",
+            "start new game",
+            "begin",
+            "begin game",
+            "start game",
+            "start"
+          ]
+        },
+        {
+          "name": "RepeatIntent",
+          "slots": [],
+          "samples": [
+            "please repeat that",
+            "repeat that please",
+            "repeat that",
+            "please say it again",
+            "please say that again",
+            "say that again please",
+            "say it again",
+            "say that again",
+            "please repeat",
+            "repeat please",
+            "repeat"
+          ]
+        },
+        {
+          "name": "ResetScoreIntent",
+          "slots": [],
+          "samples": [
+            "reset",
+            "reset high score",
+            "reset score",
+            "reset my high score",
+            "reset my score"
+          ]
+        },
+        {
+          "name": "TryAgainIntent",
+          "slots": [],
+          "samples": ["let\u0027s try again", "try again"]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "once upon a midnight dreary as I pondered weak and weary"
+              }
+            },
+            {
+              "name": {
+                "value": "allonymous isoelectrically salubrity apositia phantomize Sangraal externomedian phylloidal"
+              }
+            },
+            {
+              "name": {
+                "value": "imbreviate Bertie arithmetical undramatically braccianite eightling imagerially leadoff"
+              }
+            },
+            {
+              "name": {
+                "value": "mistakenness preinspire tourbillion caraguata chloremia unsupportedness squatarole licitation"
+              }
+            },
+            {
+              "name": {
+                "value": "Cimbric sigillarid deconsecrate acceptableness balsamine anostosis disjunctively chafflike"
+              }
+            },
+            {
+              "name": {
+                "value": "earsplitting mesoblastema outglow predeclare theriomorphism prereligious unarousing"
+              }
+            },
+            {
+              "name": {
+                "value": "ravinement pentameter proboscidate unexigent ringbone unnormal Entomophila perfectibilism"
+              }
+            },
+            {
+              "name": {
+                "value": "defyingly amoralist toadship psoatic boyology unpartizan merlin nonskid"
+              }
+            },
+            {
+              "name": {
+                "value": "broadax lifeboat progenitive betel ashkoko cleronomy unpresaging pneumonectomy"
+              }
+            },
+            {
+              "name": {
+                "value": "overharshness filtrability visual predonate colisepsis unoccurring turbanlike flyboy"
+              }
+            },
+            {
+              "name": {
+                "value": "kilp Callicarpa unforsaken undergarment maxim cosenator archmugwump fitted"
+              }
+            },
+            {
+              "name": {
+                "value": "ungutted pontificially Oudenodon fossiled chess Unitarian bicone justice"
+              }
+            },
+            {
+              "name": {
+                "value": "compartmentalize prenotice achromat suitability molt stethograph Ricciaceae ultrafidianism"
+              }
+            },
+            {
+              "name": {
+                "value": "slotter archae contrastimulant sopper Serranus remarry pterygial atactic"
+              }
+            },
+            {
+              "name": {
+                "value": "superstrata shucking Umbrian hepatophlebotomy undreaded introspect doxographer tractility"
+              }
+            },
+            {
+              "name": {
+                "value": "obstructionist undethroned unlockable Lincolniana haggaday vindicatively tithebook"
+              }
+            },
+            {
+              "name": {
+                "value": "unsole relatively Atrebates Paramecium vestryish stockfish subpreceptor"
+              }
+            },
+            {
+              "name": {
+                "value": "babied vagueness elabrate graphophonic kalidium oligocholia floccus strang"
+              }
+            },
+            {
+              "name": {
+                "value": "undersight monotriglyphic uneffete trachycarpous albeit pardonableness Wade"
+              }
+            },
+            {
+              "name": {
+                "value": "minacious peroratory filibeg Kabirpanthi cyphella cattalo chaffy savanilla"
+              }
+            },
+            {
+              "name": {
+                "value": "Polyborinae Shakerlike checkerwork pentadecylic shopgirl herbary disanagrammatize shoad"
+              }
+            }
+          ],
+          "name": "catchAll"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "all",
+                "synonyms": ["everything"]
+              }
+            },
+            {
+              "name": {
+                "value": "mixed"
+              }
+            },
+            {
+              "name": {
+                "value": "neutral"
+              }
+            },
+            {
+              "name": {
+                "value": "negative"
+              }
+            },
+            {
+              "name": {
+                "value": "positive"
+              }
+            }
+          ],
+          "name": "Sentiment"
+        }
+      ],
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      }
+    }
+  },
+  "version": "8"
+}

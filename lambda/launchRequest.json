@@ -1,0 +1,89 @@
+{
+  "type": "APL",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.1.0"
+    }
+  ],
+  "resources": [
+    {
+      "description": "Images for my skill",
+      "strings": {
+        "backgroundImg": ""
+      }
+    }
+  ],
+  "styles": {},
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {
+    "BackgroundImage": {
+      "parameters": ["imgSrc"],
+      "items": [
+        {
+          "type": "Image",
+          "source": "${imgSrc}",
+          "width": "100vw",
+          "height": "100vh",
+          "scale": "best-fill",
+          "position": "absolute"
+        }
+      ]
+    }
+  },
+  "mainTemplate": {
+    "parameters": ["payload"],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100vw",
+        "height": "100vh",
+        "direction": "column",
+
+        "items": [
+          {
+            "type": "BackgroundImage",
+            "imgSrc": "@backgroundImg"
+          },
+
+          {
+            "type": "AlexaHeader",
+            "headerTitle": "Sentiment Expert",
+            "headerAttributionPrimacy": "false"
+          },
+          {
+            "type": "Text",
+            "when": "${@viewportShape == @viewportShapeRound}",
+            "text": "Sentiment Expert",
+            "fontSize": "4vh",
+            "textAlign": "center"
+          },
+          {
+            "type": "Text",
+            "when": "${@viewportShape == @viewportShapeRound}",
+            "width": "80vw",
+            "paddingTop": "2vh",
+            "paddingLeft": "20vw",
+            "textAlign": "center",
+            "fontSize": "4vh",
+            "text": "Try to match Expert.ai sentiment measurement goals by making positive or negative statements.<br><br>Say <em>practice</em>, or, <em>start game</em> to begin."
+          },
+
+          {
+            "type": "Text",
+            "when": "${@viewportShape == @viewportShapeRectangle || @viewportShape == @viewportShapeSquare}",
+            "width": "95vw",
+            "paddingLeft": "5vw",
+            "fontSize": "7vh",
+            "text": "Try to match Expert.ai sentiment measurements to specific goals by making positive or negative statements.<br><br>Note: you may not always agree with Expert.ai's measurements - that's OK! The challenge is to try to match as best you can.<br><br>Say <em>practice</em> or <em>start game</em> to begin."
+          }
+        ]
+      }
+    ]
+  }
+}
